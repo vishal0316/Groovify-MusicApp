@@ -1,3 +1,11 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+
+:root {
+  --black: #191919;
+  --white: #f6f1ee;
+  --voilet: #5800ff;
+  --purple: #e900ff;
+  --yellow: #ffc600;
+}

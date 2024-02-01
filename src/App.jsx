@@ -1,14 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import AlbumDetails from "./pages/AlbumDetails";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export default function App() {
   return (
-    <>
-      <h1>hello</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/albums/:id" element={<AlbumDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
