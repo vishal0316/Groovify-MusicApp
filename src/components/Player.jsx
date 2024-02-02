@@ -50,7 +50,7 @@ const Player = () => {
           onMouseEnter={() => setIsVolumeVisible(true)}
           onMouseLeave={() => setIsVolumeVisible(false)}
         >
-          <LuHardDriveDownload className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl hidden  lg:block" />
+          <LuHardDriveDownload className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl hidden pr-2 lg:block" />
           <HiSpeakerWave className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl lg:mr-2" />
           <VolumeController isVolumeVisible={isVolumeVisible} />
         </div>
