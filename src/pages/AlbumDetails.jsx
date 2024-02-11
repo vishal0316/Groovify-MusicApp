@@ -1,7 +1,7 @@
 import React from "react";
 
 const AlbumDetails = () => {
-  return <div></div>;
+  return <div>hiiiii</div>;
 };
 
 export default AlbumDetails;
