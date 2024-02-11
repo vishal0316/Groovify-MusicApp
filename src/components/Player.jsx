@@ -11,7 +11,7 @@ const Player = () => {
   const [isVolumeVisible, setIsVolumeVisible] = useState(false);
 
   return (
-    <div className="fixed bottom-0 right-0 left-0 flex flex-col">
+    <div className="fixed bottom-0 right-0 left-0 flex flex-col bg-black">
       <input
         type="range"
         name="progess"

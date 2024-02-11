@@ -9,7 +9,7 @@ const MainSection = () => {
 
   const getHomePageData = async () => {
     const res = await axios.get(
-      "https://saavn.dev/modules?language=hindi,english"
+      "https://saavn.dev/modules?language=hindi,english,punjabi"
     );
     const { data } = res.data;
     setAlbums(data.albums);

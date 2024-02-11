@@ -4,7 +4,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 const Navbar = () => {
   return (
     <>
-      <nav className="p-2 flex justify-between items-center py-3 border-none lg:border px-2 fixed top-0 left-0 right-0 z-20 bg-black ">
+      <nav className="p-2 flex justify-between items-center py-0 border-none lg:border px-2 fixed top-0 left-0 right-0 z-20 bg-black ">
         {/* 1st div */}
         <div className="flex flex-col lg:flex-row justify-between items-center mx-auto lg:mx-0  ">
           <div className="flex justify-between items-center gap-2 mr-4">

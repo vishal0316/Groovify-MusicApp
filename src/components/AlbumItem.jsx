@@ -17,9 +17,12 @@ const AlbumItem = ({ name, artists, id, image, title }) => {
             {name}
           </span>
           <p className="text-gray-100 font-thin">
-            {artists && Array.isArray(artists)
-              ? artists.map((artist) => artist.name).join(",")
-              : ""}
+            {artists.map((artist) => artist.name).join(",").length > 24
+              ? artists
+                  .map((artist) => artist.name)
+                  .join(",")
+                  .slice(0, 24) + "..."
+              : artists.map((artist) => artist.name).join(",")}
           </p>
         </div>
       </Link>
