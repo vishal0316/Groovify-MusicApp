@@ -45,10 +45,10 @@ const AlbumDetails = () => {
           <img
             src={image}
             alt={album.title}
-            width={250}
+            width={200}
             className="mx-auto mb-4 rounded-lg"
           />
-          <div className="w-[250px] ">
+          <div className="w-[200px] ">
             <h1>{album.name}</h1>
             <p>
               by {album.primaryArtists} . {album.songCount} songs

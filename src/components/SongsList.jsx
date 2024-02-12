@@ -44,7 +44,7 @@ const SongsList = ({
       </div>
 
       <div>
-        <span className="font-thin text-xs text-gray-500 hidden lg:block">
+        <span className="font-thin text-xs text-white hidden lg:block">
           {convertTime(duration)}
         </span>
       </div>
