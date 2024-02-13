@@ -13,6 +13,34 @@ const Player = () => {
   const { currentSong, playMusic, isPlaying, nextSong, prevSong } =
     useContext(MusicContext);
 
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (currentSong) {
+      const audioElement = currentSong.audioElement;
+
+      const handleTimeUpdate = () => {
+        const duration = Number(currentSong.duration);
+        const currentTime = audioElement.currentTime;
+        const newTiming = (currentTime / duration) * 100;
+        inputRef.current.value = newTiming;
+      };
+
+      audioElement.addEventListener("timeupdate", handleTimeUpdate);
+      return () => {
+        audioElement.removeEventListener("timeupdate", handleTimeUpdate);
+      };
+    }
+  }, [currentSong]);
+
+  const handleProgessChange = (event) => {
+    const newPercentage = parseFloat(event.target.value);
+    const newTime = (newPercentage / 100) * Number(currentSong.duration);
+    if (newTime >= 0) {
+      currentSong.audio.currentTime = newTime;
+    }
+  };
+
   return (
     <div className="fixed bottom-0 right-0 left-0 flex flex-col bg-black">
       <input
@@ -23,6 +51,8 @@ const Player = () => {
         max={100}
         step={0.1}
         value={0}
+        ref={inputRef}
+        onChange={handleProgessChange}
         className="w-full h-[5px] text-green-500 "
       />
       <div className="flex justify-between items-center mb-3 px-3">
@@ -31,7 +61,7 @@ const Player = () => {
           <img
             src={currentSong?.image}
             alt=""
-            width={55}
+            width={45}
             className="rounded-lg"
           />
           <div className="hidded lg:block">
