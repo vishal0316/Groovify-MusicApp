@@ -17,7 +17,7 @@ const Player = () => {
 
   useEffect(() => {
     if (currentSong) {
-      const audioElement = currentSong.audioElement;
+      const audioElement = currentSong.audio;
 
       const handleTimeUpdate = () => {
         const duration = Number(currentSong.duration);
@@ -26,14 +26,19 @@ const Player = () => {
         inputRef.current.value = newTiming;
       };
 
+      const handleSongEnd = () => nextSong();
+
       audioElement.addEventListener("timeupdate", handleTimeUpdate);
+      audioElement.addEventListener("ended", handleSongEnd);
+
       return () => {
         audioElement.removeEventListener("timeupdate", handleTimeUpdate);
+        audioElement.addEventListener("ended", handleSongEnd);
       };
     }
   }, [currentSong]);
 
-  const handleProgessChange = (event) => {
+  const handleProgressChange = (event) => {
     const newPercentage = parseFloat(event.target.value);
     const newTime = (newPercentage / 100) * Number(currentSong.duration);
     if (newTime >= 0) {
@@ -52,7 +57,7 @@ const Player = () => {
         step={0.1}
         value={0}
         ref={inputRef}
-        onChange={handleProgessChange}
+        onChange={handleProgressChange}
         className="w-full h-[5px] text-green-500 "
       />
       <div className="flex justify-between items-center mb-3 px-3">

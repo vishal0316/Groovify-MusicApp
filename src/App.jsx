@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import AlbumDetails from "./pages/AlbumDetails";
 import MusicContext from "./context/MusicContext";
 import { useState } from "react";
+import Player from "./components/Player"; // Import the Player component
 
 export default function App() {
   const [songs, setSongs] = useState([]);
@@ -85,8 +86,6 @@ export default function App() {
         currentSong,
         nextSong,
         prevSong,
-        // setSearchedSongs,
-        // searchedSongs,
       }}
     >
       <BrowserRouter>
@@ -95,6 +94,8 @@ export default function App() {
           <Route path="/albums/:id" element={<AlbumDetails />} />
         </Routes>
       </BrowserRouter>
+      {currentSong && <Player />}{" "}
+      {/* Render the Player component only when currentSong is not null */}
     </MusicContext.Provider>
   );
 }
