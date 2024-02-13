@@ -44,6 +44,37 @@ export default function App() {
       await newAudio.play();
     }
   };
+
+  const nextSong = () => {
+    if (currentSong) {
+      const index = songs.findIndex((song) => song.id === currentSong.id);
+      if (index === songs.length - 1) {
+        const { downloadUrl, name, duration, image, id, primaryArtists } =
+          songs[songs.length + 1];
+        playMusic(downloadUrl, name, duration, image, id, primaryArtists);
+      } else {
+        const { downloadUrl, name, duration, image, id, primaryArtists } =
+          songs[index + 1];
+        playMusic(downloadUrl, name, duration, image, id, primaryArtists);
+      }
+    }
+  };
+
+  const prevSong = () => {
+    if (currentSong) {
+      const index = songs.findIndex((song) => song.id === currentSong.id);
+      if (index === 0) {
+        const { downloadUrl, name, duration, image, id, primaryArtists } =
+          songs[songs.length - 1];
+        playMusic(downloadUrl, name, duration, image, id, primaryArtists);
+      } else {
+        const { downloadUrl, name, duration, image, id, primaryArtists } =
+          songs[index - 1];
+        playMusic(downloadUrl, name, duration, image, id, primaryArtists);
+      }
+    }
+  };
+
   return (
     <MusicContext.Provider
       value={{
@@ -52,8 +83,8 @@ export default function App() {
         playMusic,
         isPlaying,
         currentSong,
-        // nextSong,
-        // prevSong,
+        nextSong,
+        prevSong,
         // setSearchedSongs,
         // searchedSongs,
       }}

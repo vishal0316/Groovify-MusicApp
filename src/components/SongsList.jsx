@@ -19,7 +19,7 @@ const SongsList = ({
   const { isPlaying, currentSong, playMusic } = useContext(MusicContext);
 
   return (
-    <div className="flex justify-between items-center w-[80vw] lg:w-[50vw] mb-2 bg-black rounded-md lg:mb-1 p-1 px-3 hover:bg-[#5800ff] hover:shadow-md  hover:rounded-md">
+    <div className="flex justify-between items-center w-[80vw] lg:w-[50vw] mb-2 bg-black rounded-md lg:mb-1 p-1 px-3 hover:bg-[#100C08] hover:shadow-md  hover:rounded-md">
       <GoPlay
         className="text-3xl   transition-all ease-in-out duration-300 cursor-pointer"
         onClick={() =>

@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center mx-auto lg:mx-0  ">
           <div className="flex justify-between items-center gap-2 mr-4">
             <img src="/logo.png" alt="logo" width={50} />
-            <Link href="/" className="font-extrabold text-lg ">
+            <Link to="/" className="font-extrabold text-lg ">
               Groovify
             </Link>
           </div>
