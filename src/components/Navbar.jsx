@@ -1,27 +1,36 @@
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useState } from "react"; // Import useState
 import MusicContext from "../context/MusicContext";
 
 const Navbar = () => {
   const { setSearchedSongs } = useContext(MusicContext);
+  const [searchTimeout, setSearchTimeout] = useState(null); // Add state for search timeout
 
   const searchSongs = async (e) => {
-    const res = await axios.get(
-      `https://saavn.dev/search/songs?query=${e.target.value}&page=1&limit=2`
-    );
-    const { data } = await res.data;
-    if (
-      data.results.length === 0 ||
-      e.target.value === " " ||
-      e.target.value === 0
-    ) {
-      setSearchedSongs([]);
-    } else {
-      setSearchedSongs(data.results); //
+    if (searchTimeout) {
+      clearTimeout(searchTimeout); // Clear previous timeout if exists
     }
-    console.log(data.results);
+    const query = e.target.value;
+    setSearchTimeout(
+      setTimeout(async () => {
+        try {
+          const res = await axios.get(
+            `https://saavn.dev/search/songs?query=${query}&page=1&limit=2`
+          );
+          const { data } = await res.data;
+          if (data.results.length === 0 || query === " " || query === 0) {
+            setSearchedSongs([]);
+          } else {
+            setSearchedSongs(data.results);
+          }
+          console.log(data.results);
+        } catch (error) {
+          console.error("Error fetching songs:", error);
+        }
+      }, 500) // Set a delay of 500 milliseconds between each search request
+    );
   };
 
   return (

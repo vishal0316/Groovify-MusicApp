@@ -46,6 +46,24 @@ const Player = () => {
     }
   };
 
+  const handleDownloadSong = async (url) => {
+    try {
+      const res = await fetch(url);
+      const blob = await res.blob();
+
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = `${currentSong.name}.mp3`;
+
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+    } catch (error) {
+      console.log("Error fetching or downloading files", error);
+    }
+  };
+
   return (
     <div className="fixed bottom-0 right-0 left-0 flex flex-col bg-black">
       <input
@@ -123,7 +141,10 @@ const Player = () => {
           onMouseEnter={() => setIsVolumeVisible(true)}
           onMouseLeave={() => setIsVolumeVisible(false)}
         >
-          <LuHardDriveDownload className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl hidden pr-2 lg:block" />
+          <LuHardDriveDownload
+            onClick={() => handleDownloadSong(currentSong.audio.src)}
+            className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl hidden pr-2 lg:block"
+          />
           <HiSpeakerWave className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl lg:mr-2" />
           <VolumeController isVolumeVisible={isVolumeVisible} />
         </div>
