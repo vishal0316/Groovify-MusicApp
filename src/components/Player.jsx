@@ -143,9 +143,9 @@ const Player = () => {
         >
           <LuHardDriveDownload
             onClick={() => handleDownloadSong(currentSong.audio.src)}
-            className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl hidden pr-2 lg:block"
+            className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl lg:mr-2"
           />
-          <HiSpeakerWave className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl lg:mr-2" />
+          <HiSpeakerWave className="text-gray-100 hover:text-yellow-300 cursor-pointer text-2xl lg:text-3xl lg:mr-2 hidden lg:block" />
           <VolumeController isVolumeVisible={isVolumeVisible} />
         </div>
       </div>
