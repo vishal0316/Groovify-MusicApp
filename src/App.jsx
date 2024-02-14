@@ -9,6 +9,7 @@ export default function App() {
   const [songs, setSongs] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(null);
+  const [searchedSongs, setSearchedSongs] = useState([]);
 
   const playMusic = async (
     music,
@@ -86,6 +87,8 @@ export default function App() {
         currentSong,
         nextSong,
         prevSong,
+        setSearchedSongs,
+        searchedSongs,
       }}
     >
       <BrowserRouter>
