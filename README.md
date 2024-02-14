@@ -2,7 +2,7 @@
 
 Groovify is a real-world project of a music streaming platform developed using ReactJS and Tailwind CSS. This app closely resembles the popular JioSaavn service and utilizes the JioSaavn API to fetch music data.
 ## Live Link--
-added soon
+https://groovify-music-app.vercel.app/
 
 ## Technologies Used
 - ReactJS
@@ -34,7 +34,7 @@ To get a local copy up and running, follow these simple steps.
 ### Installation
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/vishal0316/Groovify-MusicApp.git
 2. npm install
 
 3. npm run dev
