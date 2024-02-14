@@ -133,7 +133,7 @@ const Player = () => {
             onClick={nextSong}
             className="text-white hover:text-gray-500 cursor-pointer"
           />
-          <PiShuffleBold className="text-white cursor-pointer" />
+          {/* <PiShuffleBold className="text-white cursor-pointer" /> */}
         </div>
         {/* 3rd div */}
         <div
