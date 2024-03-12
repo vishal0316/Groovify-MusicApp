@@ -1,3 +1,7 @@
+alert(
+  "Sorry, the API server is currently unavailable. Please try again later."
+);
+
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 // import AlbumItem from "./AlbumItem";
