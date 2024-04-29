@@ -12,7 +12,7 @@ const AlbumItem = ({ name, artists, id, image }) => {
         className="w-[160px] max-h-[220px] overflow-y-clip flex flex-col justify-center items-center gap-3 rounded-lg"
       >
         <img
-          src={image?.[2]?.url}
+          src={image?.[2]?.link}
           alt=""
           className="rounded-lg max-w-full h-auto"
           style={{ maxWidth: "100%", height: "auto" }}
