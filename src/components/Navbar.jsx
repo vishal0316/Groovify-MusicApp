@@ -44,7 +44,7 @@ const Navbar = () => {
               Groovify
             </Link>
           </div>
-          <div className="flex text-[24px] lg:text-[15px] gap-5 font-semibold h-full hidden lg:flex">
+          <div className=" text-[24px] lg:text-[15px] gap-5 font-semibold h-full hidden lg:flex">
             <li className="list-none">Music</li>
             <li className="list-none">Podcast</li>
             <li className="list-none">Go Pro</li>

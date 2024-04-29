@@ -38,7 +38,7 @@ const AlbumDetails = () => {
 
   useEffect(() => {
     getAlbumDetails();
-  });
+  }, []);
 
   return (
     <div>
