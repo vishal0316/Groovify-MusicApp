@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import PropTypes from "prop-types";
 import MusicContext from "../context/MusicContext";
 
 const SongItem = ({
@@ -26,6 +27,19 @@ const SongItem = ({
       </div>
     </div>
   );
+};
+
+SongItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.arrayOf(
+    PropTypes.shape({
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  duration: PropTypes.string.isRequired,
+  downloadUrl: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  primaryArtists: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default SongItem;

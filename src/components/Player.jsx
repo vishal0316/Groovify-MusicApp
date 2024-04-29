@@ -1,6 +1,6 @@
 import { BiRepeat } from "react-icons/bi";
 import { IoMdSkipBackward, IoMdSkipForward } from "react-icons/io";
-import { PiShuffleBold } from "react-icons/pi";
+
 import { FaPlay, FaPause } from "react-icons/fa";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { LuHardDriveDownload } from "react-icons/lu";
@@ -36,7 +36,7 @@ const Player = () => {
         audioElement.addEventListener("ended", handleSongEnd);
       };
     }
-  }, [currentSong]);
+  }, [currentSong, nextSong]);
 
   const handleProgressChange = (event) => {
     const newPercentage = parseFloat(event.target.value);

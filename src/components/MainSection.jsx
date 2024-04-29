@@ -1,6 +1,6 @@
-alert(
-  "Sorry, the API server is currently unavailable. Please try again later."
-);
+// alert(
+//   "Sorry, the API server is currently unavailable. Please try again later."
+// );
 
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
@@ -13,7 +13,7 @@ const MainSection = () => {
 
   const getHomePageData = async () => {
     const res = await axios.get(
-      "https://saavn.dev/modules?language=hindi,english,punjabi"
+      "https://jiosaavan-harsh-patel.vercel.app/modules?language=hindi,english,punjabi"
     );
     const { data } = res.data;
     setAlbums(data.albums);

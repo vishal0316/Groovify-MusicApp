@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const AlbumItem = ({ name, artists, id, image, title }) => {
+const AlbumItem = ({ name, artists, id, image }) => {
   // console.log("Image Data:", image);
   // console.log("Image URL:", image && image[2] && image[2].link);
 
@@ -11,7 +12,7 @@ const AlbumItem = ({ name, artists, id, image, title }) => {
         className="w-[160px] max-h-[220px] overflow-y-clip flex flex-col justify-center items-center gap-3 rounded-lg"
       >
         <img
-          src={image?.[2]?.link}
+          src={image?.[2]?.url}
           alt=""
           className="rounded-lg max-w-full h-auto"
           style={{ maxWidth: "100%", height: "auto" }}
@@ -33,6 +34,18 @@ const AlbumItem = ({ name, artists, id, image, title }) => {
       </Link>
     </>
   );
+};
+
+AlbumItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  artists: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  id: PropTypes.string.isRequired,
+  image: PropTypes.array,
+  title: PropTypes.string,
 };
 
 export default AlbumItem;

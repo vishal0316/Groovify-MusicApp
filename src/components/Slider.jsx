@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
@@ -35,6 +36,15 @@ const Slider = ({ data }) => {
       />
     </div>
   );
+};
+
+Slider.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      // Add other properties of the album object here
+    })
+  ).isRequired,
 };
 
 export default Slider;

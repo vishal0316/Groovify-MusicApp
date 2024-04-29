@@ -1,4 +1,5 @@
 import { useContext, useLayoutEffect, useState } from "react";
+import PropTypes from "prop-types";
 import MusicContext from "../context/MusicContext";
 
 const VolumeController = ({ isVolumeVisible }) => {
@@ -37,6 +38,10 @@ const VolumeController = ({ isVolumeVisible }) => {
       />
     </div>
   );
+};
+
+VolumeController.propTypes = {
+  isVolumeVisible: PropTypes.bool.isRequired, // Assuming isVolumeVisible is a boolean and is required
 };
 
 export default VolumeController;

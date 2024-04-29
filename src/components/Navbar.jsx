@@ -17,7 +17,7 @@ const Navbar = () => {
       setTimeout(async () => {
         try {
           const res = await axios.get(
-            `https://saavn.dev/search/songs?query=${query}&page=1&limit=2`
+            `https://jiosaavan-harsh-patel.vercel.app/search/songs?query=${query}&page=1&limit=2`
           );
           const { data } = await res.data;
           if (data.results.length === 0 || query === " " || query === 0) {

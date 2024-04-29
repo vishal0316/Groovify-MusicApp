@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import MusicContext from "../context/MusicContext";
@@ -15,7 +15,9 @@ const AlbumDetails = () => {
 
   const getAlbumDetails = async () => {
     try {
-      const res = await axios.get(`https://saavn.dev/albums?id=${id}`);
+      const res = await axios.get(
+        `https://jiosaavan-harsh-patel.vercel.app/albums?id=${id}`
+      );
       const { data } = res.data;
       console.log(data);
       setAlbum(data);
@@ -36,7 +38,7 @@ const AlbumDetails = () => {
 
   useEffect(() => {
     getAlbumDetails();
-  }, []);
+  });
 
   return (
     <div>
